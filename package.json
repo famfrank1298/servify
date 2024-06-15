@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-menubar": "^1.0.4",
     "@radix-ui/react-navigation-menu": "^1.1.4",
     "@radix-ui/react-slot": "^1.0.2",
@@ -30,6 +31,7 @@
     "idb-keyval": "^6.2.1",
     "lit": "^3.1.2",
     "lucide-react": "^0.379.0",
+    "next-themes": "^0.3.0",
     "posthog-js": "^1.131.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
