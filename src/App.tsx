@@ -54,9 +54,8 @@ export default function App() {
 
   return (
     <main>
-      <ModeToggle />
       <Nav />
-      <div>
+      {/* <div>
         <h2 className="h2">{t('section')}</h2>
         <p>{t('translation')}</p>
         <Button
@@ -232,7 +231,7 @@ export default function App() {
         nesciunt mollitia ad nisi. Reprehenderit praesentium cupiditate in nisi,
         illum voluptas tempore exercitationem facilis accusantium ab voluptatum
         eius ullam beatae libero repellat minus iste, inventore recusandae ad.
-      </p>
+      </p> */}
     </main>
   );
 }
