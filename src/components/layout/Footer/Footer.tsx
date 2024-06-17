@@ -6,9 +6,9 @@ export default function Footer() {
   const isMobile = useMediaQuery('(max-width: 530px)');
 
   return (
-    <div>
-      {isMobile && (
-        <nav className="navFooter">
+    <div className="navFooter">
+      {isMobile ? (
+        <nav>
           <ul>
             <li>
               <a>
@@ -42,6 +42,8 @@ export default function Footer() {
             </li>
           </ul>
         </nav>
+      ) : (
+        <div>Website Footer</div>
       )}
     </div>
   );
