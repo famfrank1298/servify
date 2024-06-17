@@ -6,9 +6,9 @@ export default function Footer() {
   const isMobile = useMediaQuery('(max-width: 530px)');
 
   return (
-    <div className="navFooter">
+    <footer>
       {isMobile ? (
-        <nav>
+        <nav className="navFooter">
           <ul>
             <li>
               <a>
@@ -17,7 +17,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="./pages/Leaderboard/Leaderboard.tsx">
+              <a>
                 <img src="/assets/icons/leaderboardIcon.png" className="icon" />
                 <p>Leaderboard</p>
               </a>
@@ -43,8 +43,34 @@ export default function Footer() {
           </ul>
         </nav>
       ) : (
-        <div>Website Footer</div>
+        <div className="desktopFooter">
+          <ul>
+            <li>
+              <a href="/">About</a>
+            </li>
+            <li>
+              <a href="/">Leaderboard</a>
+            </li>
+            <li>
+              <a href="/">Create</a>
+            </li>
+            <li>
+              <a href="/">About</a>
+            </li>
+            <li>
+              <a href="/">Contact</a>
+            </li>
+          </ul>
+          <h4 className="slogan">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
+            dolorem nesciunt obcaecati, molestias vero fuga nobis id adipisci
+            vel doloribus, recusandae libero veniam tempora quas!
+          </h4>
+          <h1 className="copyright">
+            © Copyright 2024 Servify All Rights Reserved.
+          </h1>
+        </div>
       )}
-    </div>
+    </footer>
   );
 }

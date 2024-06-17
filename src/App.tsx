@@ -55,8 +55,6 @@ export default function App() {
 
   return (
     <main>
-      {/* <Nav />
-      <Footer /> */}
       {/* <div>
         <h2 className="h2">{t('section')}</h2>
         <p>{t('translation')}</p>
@@ -113,8 +111,8 @@ export default function App() {
         ) : (
           <>Loading</>
         )}
-      </div>
-      <h1 className="h1 text-center">App Template h1</h1>
+      </div>*/}
+      <h1 className="h1 text-center pt-12">App Template h1</h1>
       <h2 className="h2">h2</h2>
       <h3 className="h3">h3</h3>
       <h4 className="h4">h4</h4>
@@ -233,7 +231,7 @@ export default function App() {
         nesciunt mollitia ad nisi. Reprehenderit praesentium cupiditate in nisi,
         illum voluptas tempore exercitationem facilis accusantium ab voluptatum
         eius ullam beatae libero repellat minus iste, inventore recusandae ad.
-      </p> */}
+      </p>
     </main>
   );
 }
