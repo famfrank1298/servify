@@ -15,46 +15,45 @@ import { ModeToggle } from './components/ModeToggle';
 
 // example of a custom hook
 export default function App() {
-  const { data: quote, isLoading, error, refetch } = useRandomQuote();
+  // const { data: quote, isLoading, error, refetch } = useRandomQuote();
 
-  const [rehydrated, setRehydrated] = useState(false);
-  const langState = useLangStore((state: any) => state);
-  const quoteState = useQuoteStore<QuoteStoreState>((state: any) => state);
-  const persistentQuoteState = useBoundQuoteStore<QuoteStoreState>(
-    (state: any) => state
-  );
+  // const [rehydrated, setRehydrated] = useState(false);
+  // const langState = useLangStore((state: any) => state);
+  // const quoteState = useQuoteStore<QuoteStoreState>((state: any) => state);
+  // const persistentQuoteState = useBoundQuoteStore<QuoteStoreState>(
+  //   (state: any) => state
+  // );
 
-  const { t, i18n } = useTranslation();
+  // const { t, i18n } = useTranslation();
 
-  // ensure your useEffects are for their respective data
-  useEffect(() => {
-    i18n.changeLanguage(langState.lang);
-  });
+  // // ensure your useEffects are for their respective data
+  // useEffect(() => {
+  //   i18n.changeLanguage(langState.lang);
+  // });
 
-  // ensure your useEffects are for their respective data
-  useEffect(() => {
-    if (quote) {
-      quoteState.addQuote(quote);
-      persistentQuoteState.addQuote(quote);
-      setRehydrated(true);
-    }
-  }, [quote]);
+  // // ensure your useEffects are for their respective data
+  // useEffect(() => {
+  //   if (quote) {
+  //     quoteState.addQuote(quote);
+  //     persistentQuoteState.addQuote(quote);
+  //     setRehydrated(true);
+  //   }
+  // }, [quote]);
 
-  const showQuote = () => {
-    if (error) {
-      return <div>Error in calling the endpoint</div>;
-    }
+  // const showQuote = () => {
+  //   if (error) {
+  //     return <div>Error in calling the endpoint</div>;
+  //   }
 
-    if (isLoading) {
-      return <div>Is loading...</div>;
-    }
+  //   if (isLoading) {
+  //     return <div>Is loading...</div>;
+  //   }
 
-    return <p>{quote?.content}</p>;
-  };
+  //   return <p>{quote?.content}</p>;
+  // };
 
   return (
     <main>
-      <Nav />
       {/* <div>
         <h2 className="h2">{t('section')}</h2>
         <p>{t('translation')}</p>
@@ -111,8 +110,8 @@ export default function App() {
         ) : (
           <>Loading</>
         )}
-      </div>
-      <h1 className="h1 text-center">App Template h1</h1>
+      </div>*/}
+      <h1 className="h1 text-center pt-1">App Template h1</h1>
       <h2 className="h2">h2</h2>
       <h3 className="h3">h3</h3>
       <h4 className="h4">h4</h4>
@@ -231,7 +230,7 @@ export default function App() {
         nesciunt mollitia ad nisi. Reprehenderit praesentium cupiditate in nisi,
         illum voluptas tempore exercitationem facilis accusantium ab voluptatum
         eius ullam beatae libero repellat minus iste, inventore recusandae ad.
-      </p> */}
+      </p>
     </main>
   );
 }
