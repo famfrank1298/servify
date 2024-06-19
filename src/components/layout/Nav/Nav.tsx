@@ -20,7 +20,7 @@ export default function Nav() {
               <a href="/">ABOUT</a>
             </li>
             <li>
-              <a href="./pages/Leaderboard/Leaderboard.tsx">LEADERBOARD</a>
+              <a href="/">LEADERBOARD</a>
             </li>
             <li>
               <a href="/">PROFILE</a>
