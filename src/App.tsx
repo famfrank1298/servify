@@ -11,6 +11,8 @@ import {
 import { useRandomQuote } from './lib/hooks';
 import Nav from './components/layout/Nav/Nav';
 import { Button } from './components/ui/button';
+import { ModeToggle } from './components/ModeToggle';
+import Footer from './components/layout/Footer/Footer';
 
 // example of a custom hook
 export default function App() {
@@ -53,8 +55,7 @@ export default function App() {
 
   return (
     <main>
-      <Nav />
-      <div>
+      {/* <div>
         <h2 className="h2">{t('section')}</h2>
         <p>{t('translation')}</p>
         <Button
@@ -110,8 +111,8 @@ export default function App() {
         ) : (
           <>Loading</>
         )}
-      </div>
-      <h1 className="h1 text-center">App Template h1</h1>
+      </div>*/}
+      <h1 className="h1 text-center pt-12">App Template h1</h1>
       <h2 className="h2">h2</h2>
       <h3 className="h3">h3</h3>
       <h4 className="h4">h4</h4>
@@ -234,4 +235,3 @@ export default function App() {
     </main>
   );
 }
-
