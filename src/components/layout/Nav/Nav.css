@@ -1,0 +1,94 @@
+header {
+  position: fixed;
+  width: 100%;
+}
+
+.hardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+@keyframes entrance {
+  0% {
+    opacity: 0;
+    width: 0%;
+  }
+
+  100% {
+    opacity: 1;
+    width: 55%;
+  }
+}
+
+.islandNav {
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 1.5rem;
+  font-style: normal;
+
+  margin: 0 auto;
+  height: 4rem;
+  width: 55%;
+  background-color: rgba(208, 208, 208, 0.1);
+  border-radius: 3rem;
+  border: 2px solid rgba(208, 208, 208, 0.6);
+  animation: entrance;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+
+  overflow: hidden;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  scroll-behavior: smooth;
+  align-items: center;
+}
+
+li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+li:hover {
+  transform: scale(1.1);
+  transition: all 0.2s;
+  color: rgba(208, 208, 208, 0.9);
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 800px) {
+  .islandNav {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .islandNav {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  ul {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 530px) {
+  /*Mobile view, switch to footer Navbar*/
+}
