@@ -11,6 +11,7 @@ import {
 import { useRandomQuote } from './lib/hooks';
 import Nav from './components/layout/Nav/Nav';
 import { Button } from './components/ui/button';
+import { ModeToggle } from './components/ModeToggle';
 
 // example of a custom hook
 export default function App() {
@@ -53,6 +54,7 @@ export default function App() {
 
   return (
     <main>
+      <ModeToggle />
       <Nav />
       <div>
         <h2 className="h2">{t('section')}</h2>
@@ -234,4 +236,3 @@ export default function App() {
     </main>
   );
 }
-
