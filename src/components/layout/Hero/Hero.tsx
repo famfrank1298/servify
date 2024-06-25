@@ -1,6 +1,8 @@
 import React from 'react';
 import './Hero.css';
+import { useMediaQuery } from '@/hooks/use-media-query';
 import Carousel from '../Carousel/Carousel';
+import BulletinBoard from '../BulletinBoard/BulletinBoard';
 
 export default function Hero() {
   const title = 'SERVIFY';
@@ -29,9 +31,23 @@ export default function Hero() {
     },
   ];
 
+  const isDesktop = useMediaQuery('(min-width: 530px)');
+
   return (
-    <div className="laptop-container">
-      <Carousel slides={carouselSlides} />
+    <div>
+      {isDesktop && (
+        <div className="laptop-container">
+          <Carousel slides={carouselSlides} />
+        </div>
+      )}
+      {!isDesktop && (
+        <div>
+          <h1 className="logo">SERVIFY</h1>
+          <div className="mobile-container">
+            <BulletinBoard />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
