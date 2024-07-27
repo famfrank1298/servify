@@ -85,58 +85,66 @@ export default function Org() {
       setInfo(org);
 
       setOrganizations(org.organizations);
+
+      document.dispatchEvent(
+        new CustomEvent('org-count', {
+          composed: true,
+          bubbles: true,
+          detail: org.organizations?.length,
+        })
+      );
     };
 
     start();
   }, []);
 
-  console.log(info);
-  console.log(organizations);
-
   return (
     <section className="py-4">
-      <h2 className="text-center h2 mb-4">Organizations</h2>
-      <div className="w-3/4 mx-auto flex gap-4">
-        {organizations?.map((organization: Organization) => (
-          <Card
-            className="relative cursor-pointer w-full"
-            key={organization?.id}
-          >
-            <CardHeader className="relative">
-              <div className="relative mb-4">
-                <img
-                  src={constructOrganizationPhotoURL(
-                    organization?.banner,
-                    organization?.organizationName
-                  )}
-                  className="w-full h-56 mx-auto rounded-full"
-                />
-                <img
-                  src={constructOrganizationPhotoURL(
-                    organization?.logo,
-                    organization?.organizationName
-                  )}
-                  className="left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] absolute w-32 h-32 mx-auto rounded-full"
-                />
-              </div>
-              <h3 className="h3 text-center">
-                {organization?.organizationName}
-              </h3>
-            </CardHeader>
-            <CardContent>
-              <div className="flex gap-2">
-                {organization.tags.map((tag: any) => (
-                  <Badge>{tag.name}</Badge>
-                ))}
-              </div>
-              <p className="p">{organization.description}</p>
-              <div className="flex gap-2 justify-space-between">
-                <p className="p">{organization.email}</p>
-                <p className="p">{organization.website}</p>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+      <div className="w-full mx-auto flex gap-4">
+        {organizations?.length === 0 ? (
+          <p className="">No organizations</p>
+        ) : (
+          organizations?.map((organization: Organization) => (
+            <Card
+              className="relative cursor-pointer w-full"
+              key={organization?.id}
+            >
+              <CardHeader className="relative">
+                <div className="relative mb-4">
+                  <img
+                    src={constructOrganizationPhotoURL(
+                      organization?.banner,
+                      organization?.organizationName
+                    )}
+                    className="w-full h-32 mx-auto rounded-full"
+                  />
+                  <img
+                    src={constructOrganizationPhotoURL(
+                      organization?.logo,
+                      organization?.organizationName
+                    )}
+                    className="left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] absolute w-32 h-32 mx-auto rounded-full"
+                  />
+                </div>
+                <h3 className="h3 text-center">
+                  {organization?.organizationName}
+                </h3>
+              </CardHeader>
+              <CardContent>
+                <div className="flex gap-2">
+                  {organization.tags.map((tag: any) => (
+                    <Badge>{tag.name}</Badge>
+                  ))}
+                </div>
+                <p className="p">{organization.description}</p>
+                <div className="flex gap-2 justify-space-between">
+                  <p className="p">{organization.email}</p>
+                  <p className="p">{organization.website}</p>
+                </div>
+              </CardContent>
+            </Card>
+          ))
+        )}
       </div>
       <p className="text-center"></p>
     </section>

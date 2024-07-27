@@ -69,6 +69,8 @@ export default function App() {
       >
         Get user ID
       </Button>
+      <a href="/org">Orgs page</a>
+      <a href="/profile">Profile page</a>
 
       <SignupButton />
     </main>

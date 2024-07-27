@@ -1,3 +1,5 @@
+import supabase from './supabase';
+
 export const VolunteerTable = 'Volunteer';
 export interface Volunteer {
   address: string;
@@ -44,5 +46,29 @@ export const constructOrganizationPhotoURL = (
   nameOfOrganiztion: string | undefined
 ) => {
   return `https://viohuazsyxalucdljjbk.supabase.co/storage/v1/object/public/organization-images/${nameOfOrganiztion}/${nameOfImage}`;
+};
+
+export const constructProfilePhotoURL = (volunteer: Volunteer) => {
+  return `https://viohuazsyxalucdljjbk.supabase.co/storage/v1/object/public/profiles/${volunteer.id}/${volunteer.image}`;
+};
+
+export const updateProfileImage = async (volunteer: Volunteer, file: File) => {
+  const { error } = await supabase.storage
+    .from('profiles')
+    .upload(volunteer.id + '/' + file.name, file);
+
+  if (error) {
+    return;
+  }
+
+  const { error: errorUpdate } = await supabase
+    .from('Volunteer')
+    .update({ image: file.name })
+    .eq('id', volunteer.id)
+    .select();
+
+  if (errorUpdate) {
+    return;
+  }
 };
 

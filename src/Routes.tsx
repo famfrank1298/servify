@@ -8,6 +8,7 @@ import VolunteerSignup from './components/Signup/VolunteerSignup/VolunteerSignup
 import { Toaster } from './components/ui/toaster';
 import OrganizationSignup from './components/Signup/OrganizationSignup/OrganizationSignup';
 import Org from './components/Org/Org';
+import Profile from './Profile/Profile';
 
 const client = new QueryClient({
   defaultOptions: {
@@ -27,6 +28,7 @@ const Wrapper = (props: any) => (
 export const VolunteerSignupRoute = '/volunteer-signup';
 export const OrganizationSignupRoute = '/organization-signup';
 export const OrgPage = '/org';
+export const ProfileRoute = '/profile';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
@@ -65,6 +67,16 @@ root.render(
             element={
               <Wrapper>
                 <OrganizationSignup></OrganizationSignup>
+              </Wrapper>
+            }
+          />
+        </Routes>
+        <Routes>
+          <Route
+            path={ProfileRoute}
+            element={
+              <Wrapper>
+                <Profile />
               </Wrapper>
             }
           />

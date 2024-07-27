@@ -169,8 +169,13 @@ export enum OAuthProvider {
 }
 
 export const addUserInfo = async (volunteerInfo: VolunteerInfo) => {
-  uploadPhoto(volunteerInfo);
-  addVolunteerInfo(volunteerInfo);
+  const { data, error } = await addVolunteerInfo(volunteerInfo);
+
+  if (error) {
+    console.log(error);
+    return;
+  }
+  uploadPhoto(volunteerInfo, data![0]);
 };
 
 export const addVolunteerInfo = async (volunteerInfo: VolunteerInfo) => {
@@ -191,13 +196,16 @@ export const addVolunteerInfo = async (volunteerInfo: VolunteerInfo) => {
 
   return { data, error };
 };
-export const uploadPhoto = async (volunteerInfo: VolunteerInfo) => {
+export const uploadPhoto = async (
+  volunteerInfo: VolunteerInfo,
+  volunteer: Volunteer
+) => {
   get('profile-image').then(async (file: File) => {
     console.log(file);
 
     const { data, error } = await supabase.storage
       .from('profiles')
-      .upload(volunteerInfo.email + '/' + file.name, file);
+      .upload(volunteer.id + '/' + file.name, file);
     return { data, error };
   });
 };
